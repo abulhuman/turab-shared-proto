@@ -1,0 +1,13 @@
+version: v1
+plugins:
+  - plugin: buf.build/protocolbuffers/go
+    out: apps/daemon/gen
+    opt: paths=source_relative
+  - plugin: buf.build/connectrpc/go
+    out: apps/daemon/gen
+    opt: paths=source_relative
+  - plugin: buf.build/connectrpc/es
+    out: packages/ts-bindings/src/gen
+    opt:
+      - target=ts
+      - import_extension=none
