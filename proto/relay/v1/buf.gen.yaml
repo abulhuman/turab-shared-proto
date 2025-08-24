@@ -11,3 +11,9 @@ plugins:
     opt:
       - target=ts
       - import_extension=none
+  # Generate TS client code directly into the Tauri app for local imports
+  - plugin: buf.build/connectrpc/es
+    out: apps/desktop/src/gen
+    opt:
+      - target=ts
+      - import_extension=none
