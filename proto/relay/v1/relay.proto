@@ -59,9 +59,16 @@ message StreamOpenAIResponse {
   bool   done = 3;
 }
 
+message SubscribeRequest {
+  string client_id = 1;
+}
+
 service Relay {
   // Full-duplex for messages & actions between clients via daemon
   rpc Stream(stream ClientEvent) returns (stream ServerEvent);
+
+  // Server-stream only: subscribe to events when upload streaming is unavailable
+  rpc Subscribe(SubscribeRequest) returns (stream ServerEvent);
 
   // Convenience unaries
   rpc SendAction(Action) returns (Ack);
