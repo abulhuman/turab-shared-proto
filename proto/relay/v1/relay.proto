@@ -25,7 +25,8 @@ message ServerEvent {
     Envelope message = 1;
     Ack      ack     = 2;
     Error    error   = 3;
-    StreamOpenAIResponse token = 4; // for LLM streaming
+    Action action = 4;
+    StreamOpenAIResponse token = 5; // for LLM streaming
   }
 }
 
